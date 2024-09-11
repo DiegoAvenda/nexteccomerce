@@ -48,5 +48,17 @@ const cartSlice = createSlice({
         cartItem.qty += 1
       }
     },
+    decrementQty: (state, action) => {
+      const cartId = action.payload
+      const cartItem = state.find((item) => item.id === cartId)
+      if (cartId && cartItem.qty > 1) {
+        cartItem.qty -= 1
+      }
+    },
   },
 })
+
+//export the reducers (actions)
+export const { addToCart, removeFromCart, incrementQty, decrementQty } =
+  cartSlice.actions
+export default cartSlice.reducer
