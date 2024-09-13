@@ -4,14 +4,20 @@ import Link from "next/link"
 import { useDispatch } from "react-redux"
 
 export default function Product({ product }) {
-  const dipatch = useDispatch()
+  const dispatch = useDispatch()
   function handleAddToCart() {
     console.log(product)
-    dispatchEvent(addToCart(product))
+    dispatch(addToCart(product))
   }
   return (
-    <div>
-      <Image src={product.image} alt={product.title} width={556} height={556} />
+    <div className='rounded-lg mr-3  bg-white dark:bg-slate-900 overflow-hidden border shadow'>
+      <Image
+        src={product.image}
+        alt={product.title}
+        width={200}
+        height={200}
+        className='w-full h-48 object-cover'
+      />
       <Link href={`/products/${product.slug}`}>{product.title}</Link>
       <p>$ {product.price}</p>
       <button onClick={() => handleAddToCart()}>Add</button>
