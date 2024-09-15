@@ -1,8 +1,8 @@
 import React from "react"
 import Link from "next/link"
-import CartLenght from "../../../components/CartLength"
-import ProducList from "../../../components/ProductList"
-import { getData } from "../../../lib/getData"
+import CartLenght from "../../components/CartLength"
+import ProducList from "../../components/ProductList"
+import { getData } from "../../lib/getData"
 
 async function Products() {
   const products = (await getData("https://fakestoreapi.com/products")) ?? []

@@ -18,7 +18,7 @@ export default function Product({ product }) {
         height={200}
         className='w-full h-48 object-cover'
       />
-      <Link href={`/products/${product.slug}`}>{product.title}</Link>
+      <Link href={`/products/${product.id}`}>{product.title}</Link>
       <p>$ {product.price}</p>
       <button onClick={() => handleAddToCart()}>Add</button>
     </div>
