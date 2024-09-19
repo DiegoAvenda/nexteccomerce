@@ -1,7 +1,6 @@
 "use client"
-import CartProduct from "../../../components/CartProduct"
-import Link from "next/link"
-import { useDispatch, useSelector } from "react-redux"
+import CartProduct from "./CartProduct"
+import { useSelector } from "react-redux"
 
 export default function Cart() {
   const cartItems = useSelector((state) => state.cart)
@@ -15,12 +14,12 @@ export default function Cart() {
       <h2>Product</h2>
       <h2>Quantity</h2>
       <h2>Price</h2>
-      {cartItems.map((item, i) => {
-        return <CartProduct key={i} cartItem={item} />
-      })}
-      <h2>Cart total</h2>
-      <span>Subtotal</span>
-      <span>${totalPrice}</span>
+      <div className='flex flex-col space-y-4'>
+        {cartItems.map((item, i) => {
+          return <CartProduct key={i} cartItem={item} />
+        })}
+      </div>
+      <span className='text-info'>Subtotal: ${totalPrice}</span>
     </div>
   )
 }

@@ -1,11 +1,8 @@
 import ProductDetails from "../../../components/ProductDetails"
-import { getData } from "../../../lib/getData"
+import { products } from "../../../products"
 
 export default async function ProductDetailsPage({ params }) {
-  const product =
-    (await getData(`https://fakestoreapi.com/products/${params.productId}`)) ??
-    {}
-
+  const product = products[params.productId - 1]
   return (
     <div>
       <ProductDetails product={product} />

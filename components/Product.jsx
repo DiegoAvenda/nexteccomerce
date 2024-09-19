@@ -10,17 +10,26 @@ export default function Product({ product }) {
     dispatch(addToCart(product))
   }
   return (
-    <div className='rounded-lg mr-3  bg-white dark:bg-slate-900 overflow-hidden border shadow'>
-      <Image
-        src={product.image}
-        alt={product.title}
-        width={200}
-        height={200}
-        className='w-full h-48 object-cover'
-      />
-      <Link href={`/products/${product.id}`}>{product.title}</Link>
-      <p>$ {product.price}</p>
-      <button onClick={() => handleAddToCart()}>Add</button>
+    <div className='card bg-base-100 w-96 shadow-xl'>
+      <figure>
+        <Image
+          src={product.image}
+          alt={product.name}
+          width={200}
+          height={200}
+        />
+      </figure>
+      <div className='card-body'>
+        <Link href={`/products/${product.id}`}>
+          <h2 className='card-title'>{product.name}</h2>
+        </Link>
+        <p>$ {product.price}</p>
+        <div className='card-actions justify-end'>
+          <button onClick={() => handleAddToCart()} className='btn btn-primary'>
+            Add
+          </button>
+        </div>
+      </div>
     </div>
   )
 }
