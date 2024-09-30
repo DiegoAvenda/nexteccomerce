@@ -20,6 +20,7 @@ const cartSlice = createSlice({
         // If the item doesn't exist, add it to the cart
         state.push({ id, name, price, qty: 1, image })
       }
+      console.log(state)
     },
     removeFromCart: (state, action) => {
       const cartId = action.payload

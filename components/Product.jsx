@@ -6,18 +6,12 @@ import { useDispatch } from "react-redux"
 export default function Product({ product }) {
   const dispatch = useDispatch()
   function handleAddToCart() {
-    console.log(product)
     dispatch(addToCart(product))
   }
   return (
     <div className='card bg-base-100 w-96 shadow-xl'>
       <figure>
-        <Image
-          src={product.image}
-          alt={product.name}
-          width={200}
-          height={200}
-        />
+        <img src={product.image} alt={product.name} />
       </figure>
       <div className='card-body'>
         <Link href={`/products/${product.id}`}>
